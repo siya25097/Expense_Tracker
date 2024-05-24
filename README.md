@@ -1,2 +1,2 @@
-# Money_Tracker
- Analyze your spending  
+Expensify
+Your personalized money tracking website 
