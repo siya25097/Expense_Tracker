@@ -1,0 +1,56 @@
+<!-- usernotmatch.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>user Doesn't Match</title>
+<style>
+  /* Styling for the message box */
+  .error-box {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: none; /* Initially hide the box */
+  }
+</style>
+</head>
+<body>
+
+<script>
+  // Function to create and display the error box
+  function showPasswordError() {
+    var errorBox = document.getElementById('password-error');
+
+    // If the error box doesn't exist, create it
+    if (!errorBox) {
+      errorBox = document.createElement('div');
+      errorBox.id = 'password-error';
+      errorBox.className = 'error-box';
+      errorBox.innerText = "Error: user don't exist";
+      document.body.appendChild(errorBox);
+    }
+
+    // Display the error box
+    errorBox.style.display = 'block';
+  }
+
+  // Function to hide the error box
+  function hidePasswordError() {
+    var errorBox = document.getElementById('password-error');
+    
+    // If the error box exists, hide it
+    if (errorBox) {
+      errorBox.style.display = 'none';
+    }
+  }
+
+  // Example usage: Call showPasswordError() when passwords don't match
+  // Call hidePasswordError() when the passwords match or when the error message is dismissed
+</script>
+
+</body>
+</html>
