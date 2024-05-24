@@ -1,0 +1,354 @@
+<!-- // Filename - views/home.ejs
+
+<h1>This is home page</h1>
+
+<li><a href="/register">Sign up!!</a></li>
+<li><a href="/login">Login</a></li>
+<li><a href="/logout">Logout</a></li> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        
+      }
+
+      #img2 {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 600px;
+        height: auto;
+      }
+
+      .text-purple-400 {
+        font-weight: 700;
+      }
+      body {
+        background-color: rgb(42, 3, 71);
+      }
+      .overlay{
+        width:100%;
+        height:100vh;
+        background: rgb(0, 0, 0,0.5);
+        position: fixed;
+        z-index: -1;
+        opacity: 0;
+        top: 0%;
+        transition: 1s;
+      }
+
+      .showoverlay{
+            opacity: 1;
+            z-index: 1;
+      }
+     .loginform{
+        width: 300px;
+        background-color: aliceblue;
+        padding: 30px 20px;
+        position: absolute ;
+        left: 50%;
+        transition:2s;
+        z-index: 9;
+        top:-50%;
+        box-shadow: 0px 0px 10px 3px #ccc;
+        transform: translate(-50%,-50%);
+
+     }
+     .showloginform{
+       top: 50%;
+     }
+     .loginform input{
+        width: 100%;
+        height: 35px;
+        margin-bottom: 15px;
+     }
+     .loginform button{
+        background-color: black;
+        color: aliceblue;
+        padding: 10px 15px;
+     }
+     .loginform label{
+        font-size: 15px;
+     }
+     .close{
+        position: absolute;
+        cursor: pointer;
+        right: 0px;
+        width: 30px;
+        color: aliceblue;
+        text-align: center;
+        line-height: 30px;
+        height: 30px;
+        background: green;
+        top: 0px;
+     }
+     .loginform span{
+        position: absolute;
+        cursor: pointer;
+        right: 0;
+        top: 0;
+        width: 30px;
+        height: 30px;
+        background-color: green;
+        text-align: center;
+        color: aliceblue;
+        line-height: 30px;
+     }
+     .btn-login{
+        cursor: pointer;
+     }
+     .tab-group {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+}
+
+.tab-group:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.tab-group li a {
+    display: block;
+    text-decoration: none;
+    padding: 5px;
+    background: rgba(128, 128, 128, 0.25);
+    color: #808080;
+    font-size: 20px;
+    float: left;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.tab-group li a:hover {
+    background: #8530ca01;
+    color: rgb(7, 6, 6);
+}
+
+.tab-group .active a {
+    background: #09090a;
+    color: white;
+}
+/* Animation property */
+#btn-login1 {
+  animation: wiggle 2s linear infinite;
+}
+
+/* Keyframes */
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}
+
+/* Additional styles for button */
+/* #btn-login1 {
+  position: absolute;
+  left: calc(50% - 3em);
+  top: calc(50% - 2em);
+  height: 4em;
+  width: 7em;
+  background: #444;
+  background: linear-gradient(top, #555, #333);
+  border: none;
+  border-top: 3px solid orange;
+  border-radius: 0 0 0.2em 0.2em;
+  color: #fff;
+  font-family: Helvetica, Arial, Sans-serif;
+  font-size: 1em;
+  transform-origin: 50% 5em;
+} */
+
+    </style>
+  </head>
+  <body>
+<section id="s1">
+   <img src="/images/d1.png" id="img2" />
+  <img src="/images/d3.png" id="img1" />
+
+  <h1
+    class="mb-4 mt-16 ml-10 text-4xl font-extrabold leading-none tracking-tight text-gray-100 md:text-5xl lg:text-6xl dark:text-white"
+  >
+    The <span class="text-purple-400" id="changing">Expense Tracker</span>
+  </h1>
+  <h1
+    class="mb-4 ml-10 text-4xl font-extrabold leading-none tracking-tight text-gray-100 md:text-5xl lg:text-6xl dark:text-white"
+  >
+    that works for you !!
+  </h1>
+  <p class="ml-10 text-3xl text-gray-100">Track all your expense here...</p>
+  <div class="comm">
+    <button
+    class="ml-10 mt-10 bg-gray-100 hover:bg-purple-200 text-purple-800 font-bold py-3 px-7 border-b-4 border-purple-400 hover:border-purple-700 rounded-full"
+    id="btn-login1">
+    <li style="list-style-type: none;"><a href="/login">Getting Started!</a></li>
+  </button>
+  <!-- <button
+  class="ml-10 mt-10 bg-gray-100 hover:bg-purple-200 text-purple-800 font-bold py-3 px-7 border-b-4 border-purple-400 hover:border-purple-700 rounded-full"
+
+  >
+  <li style="list-style-type: none;"><a href="/register">register</a></li>
+</button> -->
+  </div>
+  <div class="overlay" onclick="closeModal()" ></div>
+
+<script>
+    
+   function clearPopupFields() {
+        document.getElementById("uname").value = "";
+        document.getElementById("pass3").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("name").value = "";
+        document.getElementById("pass1").value = ""; 
+        document.getElementById("pass2").value = ""; 
+        
+      }
+      document.getElementById("close").addEventListener("click",clearPopupFields);
+      window.onload = function() {
+    clearPopupFields(); // Clear form fields when the page is loaded
+    };
+  function submitFormlogin() {
+            var username = document.forms["myform1"]["uname"].value;
+            var password = document.forms["myform1"]["pass3"].value;
+    
+            if (username === "" || password === "") {
+                alert("Please fill in all fields for login");
+                return false;
+            }
+    
+            return true;
+        }
+    
+        function submitFormSignup() {
+            var email = document.forms["myform2"]["email"].value;
+            var username = document.forms["myform2"]["name"].value;
+            var password1 = document.forms["myform2"]["pass1"].value;
+            var password2 = document.forms["myform2"]["pass2"].value;
+    
+            if (email === "" || username === "" || password1 === "" || password2 === "") {
+                alert("Please fill in all fields for signup");
+                return false;
+            }
+    
+            // Validate email format
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.match(emailRegex)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+
+            if (password1.length < 8) {
+            alert("Password must be at least 8 characters");
+            return false;
+            }
+            // Validate password and confirm password match
+            if (password1 !== password2) {
+                alert("Passwords do not match");
+                return false;
+            }
+    
+            return true;
+        }
+  function showModal() {
+      document.querySelector('.overlay').classList.add('showoverlay');
+      document.querySelector('.loginform').classList.add('showloginform');
+  }
+
+  function closeModal() {
+      document.querySelector('.overlay').classList.remove('showoverlay');
+      document.querySelector('.loginform').classList.remove('showloginform');
+  }
+
+  function showLoginForm() {
+      document.querySelector('.tab-group .active').classList.remove('active');
+      document.querySelector('.tab-group li:nth-child(1)').classList.add('active');
+      document.querySelector('.signin').style.display = 'none';
+      document.querySelector('.loginform form').style.display = 'block';
+  }
+
+  function showSignupForm() {
+      document.querySelector('.tab-group .active').classList.remove('active');
+      document.querySelector('.tab-group li:nth-child(2)').classList.add('active');
+      document.querySelector('.signin').style.display = 'block';
+      document.querySelector('.loginform form').style.display = 'none';
+  }
+
+  var btnlogin = document.querySelector("#btn-login");
+  btnlogin.addEventListener("click", showModal);
+
+  var c = document.querySelector(".close");
+  c.addEventListener("click", closeModal);
+
+  document.querySelector('.tab-group li:nth-child(1) a').addEventListener('click', showLoginForm);
+  document.querySelector('.tab-group li:nth-child(2) a').addEventListener('click', showSignupForm);
+</script>
+    <script>
+      var words = ["Expense Tracker", "Budget Maker"];
+      var index = 0;
+      var direction = "left";
+      var interval = 100;
+
+      function animateText() {
+        var word = words[index]; // Get the current word
+        var len = word.length;
+        var i = direction === "left" ? 0 : len;
+        //if direction is left start index from 0 and if not means right then then starting index is length
+        var timer = setInterval(function () {
+          $("#changing").text(word.substring(0, i)); // Update text with letters
+          //$(#changing) is selecting span with id changing
+          //here we are using word1.text(word2) which is a jquery to set the content of word1 to word2
+          // Update index based on direction
+          if (direction === "left") {
+            i++;
+            if (i > len) {
+              clearInterval(timer); //stops animation for given word
+              direction = "right"; // Change direction for next word animation
+              animateText(); // Call the function recursively for removing the word from right
+            }
+          } else {
+            i--;
+            if (i === 0) {
+              clearInterval(timer);
+              index = (index + 1) % words.length; // Get next word index
+              direction = "left"; // Change direction for next word animation
+              animateText(); // Call the function recursively for next word animation
+            }
+          }
+        }, interval);
+      }
+      animateText(); 
+    </script>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+<!-- login.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        background-image: url("/images/image.jpg");
+        background-size: cover;
+        height: 100vh;
+      }
+
+      .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .form-container {
+        width: 300px;
+        background-color: aliceblue;
+        padding: 30px 20px;
+        position: relative;
+        box-shadow: 0px 0px 10px 3px #ccc;
+      }
+
+      .form-container input {
+        width: 100%;
+        height: 35px;
+        margin-bottom: 15px;
+      }
+
+      .form-container button {
+        background-color: black;
+        color: aliceblue;
+        padding: 10px 15px;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      .form-container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 800;
+        font-size: xx-large;
+      }
+      .link {
+        margin-top: 3px;
+        color: #007bff;
+        text-decoration: none;
+      }
+      .link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <h1>Login</h1>
+        <% if (errorMessage) { %>
+        <p style="color: red"><%= errorMessage %></p>
+        <% } %>
+        <form
+          action="/login"
+          method="POST"
+          name="myform1"
+          onsubmit="return validateForm()"
+          autocomplete="off"
+        >
+          <input id="email" type="text" name="email" placeholder="Email" />
+          <input
+            id="username"
+            type="text"
+            name="username"
+            placeholder="Username"
+          />
+          <input
+            id="password"
+            type="password"
+            name="password"
+            placeholder="password"
+          />
+          <button type="submit" >Login</button>
+          <p>
+            Don't have an account? <a class="link" href="/register">Signup</a>
+          </p>
+        </form>
+      
+      </div>
+    </div>
+    
+    <script>
+      function clearPopupFields() {
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("username").value = "";
+      }
+      window.onload = function () {
+        clearPopupFields();
+      };
+      function validateForm() {
+        var email = document.forms["myform1"]["email"].value;
+        var password = document.forms["myform1"]["password"].value; // Corrected variable name
+
+        if (email === "" || password === "") {
+          alert("Please fill in all fields for signup");
+          return false;
+        }
+
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.match(emailRegex)) {
+          alert("Please enter a valid email address");
+          return false;
+        }
+
+        if (password.length < 8) {
+          alert("Password must be at least 8 characters");
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>
