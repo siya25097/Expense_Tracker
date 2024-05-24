@@ -31,17 +31,24 @@ Expensify aims to create a user-friendly platform for individuals to monitor and
 
 
 ## Web Structure and Features
+![intro](https://github.com/siya25097/Money_Tracker/assets/143542717/c44be1ea-e7fd-44dd-82ef-cde3ebdb6bee)
+
 
 ### Dashboard
 - Fundamental functionalities such as adding transactions.
 - Presentation of salary, expenses, and investments through a donut chart.
+![dashboard](https://github.com/siya25097/Money_Tracker/assets/143542717/6f2cbfc5-573d-4b78-a1cc-f8d01939baee)
 
 ### Savings
 - Establish new financial goals by specifying a goal's name, target amount, and deadline.
 - View a comprehensive catalogue of previously set goals.
+![setgoal](https://github.com/siya25097/Money_Tracker/assets/143542717/70d2f08a-624e-418a-8a43-55077922c93e)
+![viewgoal](https://github.com/siya25097/Money_Tracker/assets/143542717/1d3d5662-ab9e-47d3-a1d2-e990db2e9362)
+
 
 ### Transactions
 - Access a comprehensive history encompassing all types of transactions, promoting transparency and informed decision-making.
+![transaction](https://github.com/siya25097/Money_Tracker/assets/143542717/5d75b102-bcb1-451f-bb89-41b025bbc6bd)
 
 ### About Us
 - Introduction to our dedicated team, sharing our vision and passion for empowering users through financial management.
