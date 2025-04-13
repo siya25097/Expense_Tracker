@@ -1,8 +1,5 @@
 # Expensify: The Ultimate Expense Tracker
 Expense tracking website project aims to create a user-friendly platform for expense management, facilitate easy input and categorization of expenses, provide insightful analysis of spending habits, and ensure data security.
-## Authors
-- [@khushi Makwana](https://github.com/siya25097)
-- [@Mahek Mehta](https://github.com/mahek04)
 
 ## Table of Contents
 1. [Introduction](#project-description)
